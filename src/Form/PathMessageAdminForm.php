@@ -70,15 +70,15 @@ class PathMessageAdminForm extends ConfigFormBase {
     // Load our default configuration.
     $config = $this->config('path_message.settings');
 
+    // Set the default condition configuration.
+    $this->condition->setConfiguration($config->get('request_path'));
+
     $form['message'] = array(
       '#type' => 'textfield',
       '#title' => $this->t('Message'),
       '#description' => $this->t('Enter the message you want to appear'),
       '#default_value' => $config->get('message'),
     );
-
-    // Set the default condition configuration.
-    $this->condition->setConfiguration($config->get('request_path'));
 
     // Build the configuration form.
     $form += $this->condition->buildConfigurationForm($form, $form_state);

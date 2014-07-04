@@ -2,5 +2,5 @@ name: Path Message
 description: Allows users to set a system message at a specific path.
 package: Other
 core: 8.x
-configure: cors.settings
+configure: path_message.settings
 type: module
