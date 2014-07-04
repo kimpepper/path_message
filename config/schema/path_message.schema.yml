@@ -1,0 +1,10 @@
+path_message.settings:
+  type: mapping
+  label: 'Path Message settings'
+  mapping:
+    message:
+      type: string
+      label: 'Message'
+    request_path:
+      type: condition.plugin.request_path
+      label: 'Request Path Condition'

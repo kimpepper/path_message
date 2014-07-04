@@ -1,0 +1,7 @@
+path_message.settings:
+  path: '/admin/config/system/path_message'
+  defaults:
+    _form: '\Drupal\path_message\Form\PathMessageAdminForm'
+    _title: 'Path Message'
+  requirements:
+    _permission: 'administer site configuration'

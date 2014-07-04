@@ -1,0 +1,5 @@
+path_message.settings:
+  title: 'Path Message'
+  description: 'Set a message to appear on a path'
+  route_name: path_message.settings
+  parent: system.admin_config_system
