@@ -1,0 +1,6 @@
+services:
+  path_message_event_subscriber:
+    class: Drupal\path_message\EventSubscriber\PathMessageEventSubscriber
+    arguments: ['@config.factory', '@plugin.manager.condition']
+    tags:
+      - {name: event_subscriber}
