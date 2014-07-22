@@ -7,11 +7,11 @@
 
 namespace Drupal\path_message\Form;
 
+use Drupal\Component\Plugin\Factory\FactoryInterface;
+use Drupal\Component\Utility\String;
 use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\Core\Executable\ExecutableManagerInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Component\Utility\String;
 
 /**
  * Provides and admin form for Path Message.
@@ -21,7 +21,7 @@ class PathMessageAdminForm extends ConfigFormBase {
   /**
    * The condition manager.
    *
-   * @var \Drupal\Core\Executable\ExecutableManagerInterface
+   * @var \Drupal\Component\Plugin\Factory\FactoryInterface
    */
   protected $conditionManager;
 
@@ -37,13 +37,12 @@ class PathMessageAdminForm extends ConfigFormBase {
    *
    * @param ConfigFactoryInterface $config_factory
    *   The config factory.
-   * @param \Drupal\Core\Executable\ExecutableManagerInterface $condition_manager
-   *   The condition manager.
+   * @param \Drupal\Component\Plugin\Factory\FactoryInterface $plugin_factory
+   *   The condition plugin factory.
    */
-  public function __construct(ConfigFactoryInterface $config_factory, ExecutableManagerInterface $condition_manager) {
+  public function __construct(ConfigFactoryInterface $config_factory, FactoryInterface $plugin_factory) {
     parent::__construct($config_factory);
-    $this->conditionManager = $condition_manager;
-    $this->condition = $this->conditionManager->createInstance('request_path');
+    $this->condition = $plugin_factory->createInstance('request_path');
   }
 
   /**
