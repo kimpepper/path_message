@@ -93,7 +93,7 @@ class PathMessageAdminForm extends ConfigFormBase {
 
     $this->condition->submitConfigurationForm($form, $form_state);
     $this->config('path_message.settings')
-      ->set('message', String::checkPlain($form_state['values']['message']))
+      ->set('message', String::checkPlain($form_state->getValue('message')))
       ->set('request_path', $this->condition->getConfiguration())
       ->save();
 
