@@ -9,6 +9,7 @@ namespace Drupal\path_message\Form;
 
 use Drupal\Component\Plugin\Factory\FactoryInterface;
 use Drupal\Component\Utility\String;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -65,7 +66,7 @@ class PathMessageAdminForm extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, array &$form_state) {
+  public function buildForm(array $form, FormStateInterface $form_state) {
     // Load our default configuration.
     $config = $this->config('path_message.settings');
 
@@ -88,7 +89,7 @@ class PathMessageAdminForm extends ConfigFormBase {
   /**
    * {@inheritdoc}
    */
-  public function submitForm(array &$form, array &$form_state) {
+  public function submitForm(array &$form, FormStateInterface $form_state) {
 
     $this->condition->submitConfigurationForm($form, $form_state);
     $this->config('path_message.settings')
