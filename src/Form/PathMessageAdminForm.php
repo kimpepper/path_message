@@ -100,4 +100,11 @@ class PathMessageAdminForm extends ConfigFormBase {
     parent::submitForm($form, $form_state);
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  protected function getEditableConfigNames() {
+    return array('path_message.settings');
+  }
+
 }
