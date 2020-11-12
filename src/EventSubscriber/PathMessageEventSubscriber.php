@@ -58,7 +58,7 @@ class PathMessageEventSubscriber implements EventSubscriberInterface {
     $condition->setConfiguration($this->config->get('request_path'));
 
     if ($condition->evaluate()) {
-      \Drupal::messenger()->addError($this->config->get('message'));
+      \Drupal::messenger()->addMessage($this->config->get('message'));
     }
   }
 }
