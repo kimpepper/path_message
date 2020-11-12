@@ -8,7 +8,7 @@
 namespace Drupal\path_message\Form;
 
 use Drupal\Component\Plugin\Factory\FactoryInterface;
-use Drupal\Component\Utility\String;
+use Drupal\Component\Utility\Html;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Form\ConfigFormBase;
@@ -93,7 +93,7 @@ class PathMessageAdminForm extends ConfigFormBase {
 
     $this->condition->submitConfigurationForm($form, $form_state);
     $this->config('path_message.settings')
-      ->set('message', String::checkPlain($form_state->getValue('message')))
+      ->set('message', Html::escape($form_state->getValue('message')))
       ->set('request_path', $this->condition->getConfiguration())
       ->save();
 
