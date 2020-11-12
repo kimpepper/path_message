@@ -58,7 +58,7 @@ class PathMessageEventSubscriber implements EventSubscriberInterface {
     $condition->setConfiguration($this->config->get('request_path'));
 
     if ($condition->evaluate()) {
-      drupal_set_message($this->config->get('message'));
+      \Drupal::messenger()->addError($this->config->get('message'));
     }
   }
 }
